@@ -2,6 +2,7 @@
 LogInForm
 SignUpForm
 NavBar
+ProtectedRoute
 HomePage
 
 Article

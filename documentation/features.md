@@ -3,9 +3,9 @@
 # User Stories
 As a typical user I would like to read about subjects related to wine without having to log in
 
-As a somm/wine maker/vineyard grower I would like to write articles about wine
+As a typical user I would like to write articles about wine
 
-As a somm/wine maker/vineyard grower I would like to edit articles about wine
+As a typical user I would like to edit articles about wine
 
 
 # Features - MVP
@@ -40,7 +40,7 @@ As a somm/wine maker/vineyard grower I would like to edit articles about wine
   [ ] How to contribute
 
 [ ] Write Article Form
-  [ ] article title textinput
+  [ ] article title text input
   [ ] section creation component
     [ ] section header text input
     [ ] section text textarea
@@ -75,3 +75,6 @@ As a somm/wine maker/vineyard grower I would like to edit articles about wine
 [ ] Edits from a low "trust" contributor is submitted as a edit request (like a git commit) tp be approved by a high "trust" user
 [ ] If a user is logged in keeps track of articles read to display in a History button (in nav bar)
 [ ] Random Article button linking to random article
+[ ] About Page
+  [ ] Websites summary/about
+  [ ] How to contribute

@@ -25,10 +25,6 @@ Includes
   password input
   submit button
 
-"/about"
-Action: Get
-Notes: renders about page (see MVP)
-
 "/articles"
 Action: GET
 Notes: sends fetch request to "/api/articles" and renders a page listing all articles as links (https://en.wikipedia.org/w/index.php?title=Special:AllPages&from=%22Archaeological+Museum+of+Iran%22)

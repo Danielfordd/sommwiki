@@ -12,7 +12,6 @@ As a typical user I would like to edit articles about wine
 [ ] Home Page
   [ ] Navbar
     [ ] Logo that is clickable to bring to homepage
-    [ ] About button links to "/about"
     [ ] Login button that links to "/login"
     [ ] Signup button redirecting to "/signup"
       [ ] once logged in, both Login and Signup button replaced with write new article button that links to "/articles/create"
@@ -35,9 +34,6 @@ As a typical user I would like to edit articles about wine
   [ ] password password input
   [ ] confirm password password input
   [ ] link to "/login"
-[ ] About Page
-  [ ] Websites summary/about
-  [ ] How to contribute
 
 [ ] Write Article Form
   [ ] article title text input
@@ -78,3 +74,4 @@ As a typical user I would like to edit articles about wine
 [ ] About Page
   [ ] Websites summary/about
   [ ] How to contribute
+  [ ] About button links to "/about" in NavBar

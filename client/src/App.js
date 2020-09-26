@@ -8,7 +8,7 @@ function App() {
 
   return (
     <BrowserRouter>
-        <nav>
+        <nav className="nav-bar">
             <ul>
                 <li><NavLink to="/" activeClass="active">Home</NavLink></li>
                 <li><NavLink to="/users" activeClass="active">Users</NavLink></li>

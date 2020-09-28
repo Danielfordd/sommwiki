@@ -109,7 +109,6 @@ router.put('/login', validateLogin, asyncHandler(async (req, res, next) => {
 
 //full path /api/auth/logout
 router.delete('/logout', [restoreUser], asyncHandler(async (req, res) => {
-  console.log('I made it here')
   //remove token from db & save user
   //restoreuser middleware is responsible for finding the user from DB
   req.user.tokenId = null;

@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define('Article', {
-    title: DataTypes.STRING
+    title: DataTypes.STRING,
+    abstract: DataTypes.STRING
   }, {});
   Article.associate = function(models) {
     Article.hasMany(models.Section, { foreignKey: 'articleId' })

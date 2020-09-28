@@ -1,26 +1,28 @@
 'use strict';
 
+function r(o) {
+  o.createdAt = new Date();
+  o.updatedAt = new Date();
+  return o;
+}
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('Articles', [
+      r({ title:'Wine',
+          abstract: 'this is an abstract of the article'}),
+      r({ title:'Burgundy',
+          abstract: 'this is an abstract of the article'}),
+      r({ title:'Napa Valley',
+          abstract: 'this is an abstract of the article'}),
+      r({ title:'Blind Tasting',
+          abstract: 'this is an abstract of the article'}),
+      r({ title:'Court of Master Sommeliers',
+          abstract: 'this is an abstract of the article'}),
+    ]);
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Articles');
   }
 };

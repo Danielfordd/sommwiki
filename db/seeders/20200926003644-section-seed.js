@@ -1,26 +1,99 @@
 'use strict';
+const faker = require("faker");
+
+function r(o) {
+  o.createdAt = new Date();
+  o.updatedAt = new Date();
+  return o;
+}
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('Sections', [
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:1,
+          articleId:1 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:2,
+          articleId:1 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:3,
+          articleId:1 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:4,
+          articleId:1 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:5,
+          articleId:1 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:1,
+          articleId:2 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:2,
+          articleId:2 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:3,
+          articleId:2 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:4,
+          articleId:2 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:1,
+          articleId:3 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:2,
+          articleId:3 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:3,
+          articleId:3 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:1,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:2,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:3,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:4,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:5,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:6,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:7,
+          articleId:4 }),
+      r({ header:'This is a header',
+          content: faker.lorem.paragraph(),
+          orderNumber:1,
+          articleId:5 }),
+    ]);
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Sections');
   }
 };

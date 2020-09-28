@@ -4,12 +4,11 @@ import * as AuthAction from '../store/authentication';
 
 const LogoutButton = ({ loggedOut, logout }) => {
   if (loggedOut) {
-    console.log('Succesfully logged out. You can check user in DB has no tokenId & cookie is removed from store to double check.')
     return null;
   }
   return (
-    <div id="logout-button-holder">
-      <button onClick={logout}>Logout</button>
+    <div id="logout-button-holder" >
+      <button onClick={logout} className="Header-button">Logout</button>
     </div>
   );
 }

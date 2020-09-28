@@ -53,7 +53,7 @@ Notes: directs to a page to edit specific article
 Action: post
 Notes: updates article in DB with edits
 
-"/articles/create"
+"/api/articles/create"
 Action: Get
 Notes: directs to a page to create a new article
 

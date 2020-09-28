@@ -10,11 +10,11 @@ As a typical user I would like to edit articles about wine
 
 # Features - MVP
 [ ] Home Page
-  [ ] Navbar
-    [ ] Logo that is clickable to bring to homepage
-    [ ] Login button that links to "/login"
-    [ ] Signup button redirecting to "/signup"
-      [ ] once logged in, both Login and Signup button replaced with write new article button that links to "/articles/create"
+  [x] Navbar
+    [x] Logo that is clickable to bring to homepage
+    [x] Login button that links to "/login"
+    [x] Signup button redirecting to "/signup"
+      [x] once logged in, both Login and Signup button replaced with write new article button that links to "/articles/create"
   [ ] Below Navbar a container of popular articles
   [ ] Below popular articles a container of new articles
 [ ] Login Page

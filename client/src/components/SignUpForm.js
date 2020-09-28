@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import * as AuthAction from '../store/authentication';
 
 
@@ -22,34 +23,43 @@ const SignupForm = () => {
 
   return (
     <main className="centered middled">
-    <form onSubmit={SignupHandler}>
-      <input type="text"
-             placeholder="First Name"
-             value={firstName}
-             onChange={e => setFirstName(e.target.value)}/>
-      <input type="text"
-             placeholder="Last Name"
-             value={lastName}
-             onChange={e => setLastName(e.target.value)}/>
-      <input type="text"
-             placeholder="User Name"
-             value={userName}
-             onChange={e => setUserName(e.target.value)}/>
-      <input type="text"
-             placeholder="Email"
-             value={email}
-             onChange={e => setEmail(e.target.value)}/>
-      <input type="password"
-             placeholder="Password"
-             value={password}
-             onChange={e => setPassword(e.target.value)} />
-      <input type="password"
-             placeholder="Confirm Password"
-             value={confirmPassword}
-             onChange={e => setConfirmPassword(e.target.value)} />
-      <button type="submit">Login</button>
-    </form>
-  </main>
+       <form onSubmit={SignupHandler}>
+              <input type="text"
+                     placeholder="First Name"
+                     value={firstName}
+                     onChange={e => setFirstName(e.target.value)}
+                     className="input"/>
+              <input type="text"
+                     placeholder="Last Name"
+                     value={lastName}
+                     onChange={e => setLastName(e.target.value)}
+                     className="input"/>
+              <input type="text"
+                     placeholder="User Name"
+                     value={userName}
+                     onChange={e => setUserName(e.target.value)}
+                     className="input"/>
+              <input type="text"
+                     placeholder="Email"
+                     value={email}
+                     onChange={e => setEmail(e.target.value)}
+                     className="input"/>
+              <input type="password"
+                     placeholder="Password"
+                     value={password}
+                     onChange={e => setPassword(e.target.value)}
+                     className="input"/>
+              <input type="password"
+                     placeholder="Confirm Password"
+                     value={confirmPassword}
+                     onChange={e => setConfirmPassword(e.target.value)}
+                     className="input"/>
+              <button type="submit" className="form-button">Sign Up</button>
+              <div className="signup-form-login">
+                <div>Already have an account?</div><NavLink to="/login"> Login</NavLink>
+              </div>
+       </form>
+    </main>
   );
 }
 

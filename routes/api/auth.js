@@ -35,6 +35,7 @@ router.post('/signup', validateSignup, asyncHandler(async (req, res, next) => {
 
     //hash given password
     const hashedPassword = await bcrypt.hash(password, 10);
+
     //build a new user object
     const user = await User.create({
       firstName,
@@ -44,8 +45,7 @@ router.post('/signup', validateSignup, asyncHandler(async (req, res, next) => {
       hashedPassword
     });
 
-    console.log('here')
-    console.log(user)
+
     //generate a token
     const { jti, token } = generateToken(user);
 
@@ -54,7 +54,6 @@ router.post('/signup', validateSignup, asyncHandler(async (req, res, next) => {
 
     //save newUser with tokenId to DB
     await user.save();
-    console.log('after save')
 
     //respond with a cookie token to be set in authentication reducer as initial state via loadUser() function
     res.cookie("token", token);

@@ -43,7 +43,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-
 app.use(function(_req, _res, next) {
   next(createError(404));
 });

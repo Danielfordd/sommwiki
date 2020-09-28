@@ -61,8 +61,6 @@ export const signup = (firstName, lastName, userName,email, password) => async d
 
     if (response.ok) {
       const { user } = await response.json();
-      console.log(user)
-      debugger
       //if the user is successfully logged in disatch the info to update state to the user
       dispatch(setUser(user));
     }
@@ -83,6 +81,7 @@ export const logout = () => async dispatch => {
   });
   if (res.ok) {
     //if successful update state to empty object
+
     dispatch(removeUser());
   }
 }

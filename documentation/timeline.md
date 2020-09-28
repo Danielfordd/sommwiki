@@ -1,6 +1,6 @@
 Monday 9/28
   [x] Database
-  [ ] seeder files
+  [x] seeder files
   [x] Auth / Login / signup
     [x] Login Form
     [x] login api route
@@ -10,8 +10,8 @@ Monday 9/28
     [x] sign up api route
 
 Tuesday 9/29
+  [x] Nav Bar
   [ ] Home Page
-  [ ] Nav Bar
 
 Wednesday 9/30
   [ ] Create Article Form

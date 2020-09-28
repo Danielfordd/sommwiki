@@ -1,15 +1,17 @@
 Monday 9/28
-  [ ] Database
+  [x] Database
   [ ] seeder files
-  [ ] Back-end routes
-  [ ] Auth / Login
-  [ ] Login Form
+  [ ] Auth / Login / signup
+    [x] Login Form
+    [x] login api route
+    [ ] Log out Button
+    [ ] logout api route
+    [x] Sign Up Form
+    [x] sign up api route
 
 Tuesday 9/29
   [ ] Home Page
   [ ] Nav Bar
-  [ ] Login Form
-  [ ] Sign Up Form
 
 Wednesday 9/30
   [ ] Create Article Form

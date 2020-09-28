@@ -1,7 +1,10 @@
 const router = require('express').Router();
 
-const routes = ['users'];
+//add all routes here
+const routes = ['auth'];
 
+//loops through routes array above and sets up the paths.
+//ex for 'auth' would be "router.user('/auth', require('./auth'))"
 for (let route of routes) {
   router.use(`/${route}`, require(`./${route}`));
 }

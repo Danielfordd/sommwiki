@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    firstName:{
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    lastName:{
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
     email: {
       allowNull: false,
       type: DataTypes.STRING,
@@ -36,6 +44,18 @@ module.exports = (sequelize, DataTypes) => {
     }
     User.belongsToMany(models.Article, columnMapping)
   };
+
+  User.prototype.toSafeObject = function () {
+    return {
+      id: this.id,
+      email: this.email,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+      username: this.username
+    };
+  }
 
   return User;
 };

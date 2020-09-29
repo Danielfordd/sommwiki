@@ -17,23 +17,23 @@ As a typical user I would like to edit articles about wine
       [x] once logged in, both Login and Signup button replaced with write new article button that links to "/articles/create"
   [ ] Below Navbar a container of popular articles
   [ ] Below popular articles a container of new articles
-[ ] Login Page
-  [ ] NavBar with form rendered below
-  [ ] csrf protection
-  [ ] email
-  [ ] password
-  [ ] link to "/signup"
-[ ] Signup Page
-  [ ] NavBar with form rendered below
-  [ ] csrf protection
-  [ ] first name text input
-  [ ] last name text input
-  [ ] user name text input
-  [ ] email email input
-  [ ] confirm email email input
-  [ ] password password input
-  [ ] confirm password password input
-  [ ] link to "/login"
+[x] Login Page
+  [x] NavBar with form rendered below
+  [x] csrf protection
+  [x] email
+  [x] password
+  [x] link to "/signup"
+[x] Signup Page
+  [x] NavBar with form rendered below
+  [x] csrf protection
+  [x] first name text input
+  [x] last name text input
+  [x] user name text input
+  [x] email email input
+  [x] confirm email email input
+  [x] password password input
+  [x] confirm password password input
+  [x] link to "/login"
 
 [ ] Write Article Form
   [ ] article title text input

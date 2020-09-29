@@ -11,7 +11,7 @@ Monday 9/28
 
 Tuesday 9/29
   [x] Nav Bar
-  [ ] Home Page
+  [x] Home Page
 
 Wednesday 9/30
   [ ] Create Article Form

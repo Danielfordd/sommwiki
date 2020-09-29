@@ -52,6 +52,7 @@ main {
   font-size: 14px;
   margin-left: 7px;
   padding-right: 5px;
+  cursor: pointer;
 }
 
 .form-button:hover {
@@ -129,6 +130,7 @@ main {
   color: black;
   font-size: 14px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .Header-button:hover {
@@ -157,24 +159,28 @@ main {
 
 
 .home-page-container {
- display: grid;
- grid-template-columns: 25% 50% 25%;
- grid-template-rows: 1fr 1fr;
+ /* display: grid; */
+ /* grid-template-columns: 25% 50% 25%; */
+ /* grid-template-rows: 1fr 1fr; */
 }
 
 .article-preview-container {
   display: grid;
-  grid-template-rows:1fr 1fr;
-  grid-template-columns: repeat(7, 1fr);
-  max-width: 1305px;
-  max-height: 480px;
+  grid-template-rows:auto;
+  grid-template-columns: repeat(6, 1fr);
+  max-width: auto;
+  max-height: auto;
   margin: auto;
-  /* background-color: #F3D8C7; */
   margin-top: 10px;
   padding:5px;
   grid-gap: 7px;
   border-radius:7px;
 }
+
+.homepage-container-title{
+  grid-row: 1;
+}
+
 .article-preview-card {
   width: 225px;
   height: 175px;
@@ -191,13 +197,70 @@ main {
 
 .article-card-title {
   margin: 5px;
-  border-bottom: 1px solid #81726A;;
   font-weight: 500;
   font-size: 16px;
-  /* border-bottom: 1px solid #F3D8C7; */
+  border-bottom: 1px solid #81726A;;
   /* border-bottom: 1px solid black; */
 }
 
 .article-card-abstract {
   margin: 5px;
+}
+
+.homepage-container{
+  /* background-color: red; */
+  display: grid;
+  grid-template-rows: 4;
+  grid-template-columns: 1;
+  max-width: auto;
+  justify-content: left;
+  overflow: hidden;
+  margin:auto
+}
+.homepage-container h2 {
+  grid-row: 1;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  /* border-bottom: 1px solid #81726A; */
+}
+
+@media screen and  (min-width: 1200px) {
+  .homepage-container{
+    /* background-color: red; */
+    display: grid;
+    grid-template-rows: 4;
+    grid-template-columns: 1;
+    max-width: 1165px;
+    justify-content: left;
+    overflow: hidden;
+    margin:auto;
+  }
+}
+
+@media screen and  (max-width: 1200px) {
+  .article-preview-container {
+    display: flex;
+    flex-flow: wrap;
+    max-width: auto;
+    max-height: auto;
+    margin: auto;
+    margin-top: 10px;
+    padding:5px;
+    grid-gap: 7px;
+    border-radius:7px;
+  }
+}
+
+@media screen and  (max-width: 479px) {
+  .nav-bar {
+    z-index: 32;
+    line-height: 1.5;
+    background-color: #F3D8C7;
+    font-size: 12px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    max-height: 30px;
+  }
 }

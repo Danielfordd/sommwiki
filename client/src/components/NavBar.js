@@ -13,26 +13,22 @@ const NavBar = ({loggedIn}) => {
   if(loggedIn) {
     return (
       <BrowserRouter>
-      <nav className="nav-bar">
-        <NavLink exact to="/" className="Header-link">LOGO STANDIN</NavLink>
-        <form>
-          <input
-            className="Search-bar"
-            type="text"
-            placeholder="Search articles" />
-        </form>
-        <NavLink to="/api/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
-        <Logoutbutton />
-      </nav>
-      <Switch>
-          <Route exact path="/login">
-              <LoginForm />
-          </Route>
-          <Route exact path="/signup">
-              <SignUpForm />
-          </Route>
-          <Route path="/" component={HomePage}/>
-      </Switch>
+        <nav className="nav-bar">
+          <NavLink exact to="/" className="Header-link">LOGO STANDIN</NavLink>
+          <form>
+            <input
+              className="Search-bar"
+              type="text"
+              placeholder="Search articles" />
+          </form>
+          <NavLink to="/api/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
+          <Logoutbutton />
+        </nav>
+        <Switch>
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/signup" component={SignUpForm} />
+            <Route path="/" component={HomePage}/>
+        </Switch>
     </BrowserRouter>
     )
   }

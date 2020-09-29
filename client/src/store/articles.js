@@ -16,20 +16,31 @@ export const getAllArticles = () => async dispatch => {
   const res = await fetch('/api/articles')
   if(res.ok) {
     const data = await res.json();
-    console.log(data.articles)
     dispatch(loadAllArticles(data.articles))
   } else {
     console.log("there was an error", res)
   }
 }
 
-export default function reducer(state = {list:[]}, action) {
+export const getOneArticle = (id) => async dispatch => {
+  const res = await fetch(`/api/articles/${id}`)
+  if(res.ok) {
+    const data = await res.json();
+    dispatch(loadOneArticle(data.article))
+  } else {
+    console.log("there was an error", res)
+  }
+}
+
+export default function reducer(state = {list:[], current: {Sections:[]}}, action) {
   let nextState = {};
   switch (action.type) {
     case LOAD_ALL_ARTICLES:
       nextState = {...state, list: action.articles}
-      console.log('next state', nextState)
       return nextState
+      case LOAD_ONE_ARTICLE:
+        nextState = {...state, current:action.article}
+        return nextState
     default:
       return state;
   }

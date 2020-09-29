@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import React from "react";
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-import { signup } from "../store/authentication";
 
 import Logoutbutton from './LogoutButton'
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
-import ArticlePreview from './ArticlePreview'
 import HomePage from './HomePage'
+import Article from "./Article";
+import TableOfContents from './TableOfContents'
 
 const NavBar = ({loggedIn}) => {
   if(loggedIn) {
@@ -21,10 +21,12 @@ const NavBar = ({loggedIn}) => {
               type="text"
               placeholder="Search articles" />
           </form>
-          <NavLink to="/api/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
+          <NavLink to="/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
           <Logoutbutton />
         </nav>
         <Switch>
+            <Route path="/articles/create"  component={TableOfContents} />
+            <Route path="/article/:id" component={Article} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
             <Route path="/" component={HomePage}/>
@@ -47,6 +49,7 @@ const NavBar = ({loggedIn}) => {
         <NavLink to="/signup" activeClassName="active" className="Header-link">Sign Up</NavLink>
       </nav>
       <Switch>
+          <Route path="/article/:id" component={Article} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup"component={SignUpForm} />
           <Route path="/" component={HomePage}/>

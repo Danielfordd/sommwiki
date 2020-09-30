@@ -8,7 +8,7 @@ const TableOfContents = ({sections}) => {
   }
 
   return (
-    <div className="table-of-contents">
+    <span className="table-of-contents">
       <h4>Table of Contents</h4>
       {sections.map(section => {
         return (
@@ -18,7 +18,7 @@ const TableOfContents = ({sections}) => {
           </div>
         )
       })}
-    </div>
+    </span>
   )
 }
 

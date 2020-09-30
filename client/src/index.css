@@ -44,9 +44,11 @@ main {
   outline: 0;
   padding: .25em .5em;
   width: 100%;
+  background-color: #FBFEFB;
   /* background-color: #EFE5DC; */
 }
-
+.write-article .input {
+}
 .form-button {
   background-color: #EFE5DC;
   padding: 0;
@@ -281,7 +283,7 @@ main {
   padding: 25px;
   max-width: 1250px;
   background-color: #FBFEFB;
-  position:fixed;
+  position: absolute;;
   height: 100%;
   left:10%;
   right:10%;
@@ -316,7 +318,8 @@ main {
   padding: 7px;
   line-height: 1.6;
   margin-bottom: 10px;
-  border:1px solid black
+  border:1px solid black;
+  text-align: left;
 }
 
 .table-of-contents h4 {
@@ -333,4 +336,47 @@ main {
 .table-of-contents__header {
   padding-right:2px;
   font-size: 12px;
+}
+
+.article__image{
+  width:250px;
+  height: 170px;
+}
+
+.article__image-container {
+  float: right;
+}
+
+.write-article {
+  padding: 25px;
+  max-width: 1250px;
+  background-color: #FBFEFB;
+  position: absolute;;
+  height: 100%;
+  left:10%;
+  right:10%;
+  margin:auto;
+  height: 100%;
+  margin:auto;
+}
+
+.write-article__button {
+  background-color: #EFE5DC;
+  padding: 3px;
+  margin: 3px;
+  border: none;
+  background: none;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.write-article__button:hover {
+  color: #81726A;
+}
+
+.section__number{
+margin-left: 5px;
+margin-top: 20px;
+margin-bottom: 3px;
 }

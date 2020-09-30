@@ -7,7 +7,7 @@ import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 import HomePage from './HomePage'
 import Article from "./Article";
-import TableOfContents from './TableOfContents'
+import WriteArticle from './WriteArticle'
 
 const NavBar = ({loggedIn}) => {
   if(loggedIn) {
@@ -25,7 +25,7 @@ const NavBar = ({loggedIn}) => {
           <Logoutbutton />
         </nav>
         <Switch>
-            <Route path="/articles/create"  component={TableOfContents} />
+            <Route path="/articles/create"  component={WriteArticle} />
             <Route path="/article/:id" component={Article} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />

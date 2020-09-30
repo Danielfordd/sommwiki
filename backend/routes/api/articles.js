@@ -6,8 +6,8 @@ const router = express.Router();
 
 // /api/articles
 router.get("/", asyncHandler(async (req, res, next) => {
-  const articles = await Article.findAll({   limit : 10})
-
+  const articles = await Article.findAll({ limit : 10, order: [['createdAt', 'DESC']]})
+  console.log()
   res.json({articles:articles});
 }));
 

@@ -14,10 +14,10 @@ Tuesday 9/29
   [x] Home Page
 
 Wednesday 9/30
-  [ ] Create Article Form
+  [x] Create Article Form
+  [x] Rendering specific article
+  [x] Table of contents
   [ ] Rendering list of articles
-  [ ] Rendering specific article
-  [ ] Table of contents
 
 Thursday 10/1
   [ ] CSS

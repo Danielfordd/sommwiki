@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Section from './Section'
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as ArticleActions from '../store/articles'
 
 const WriteArticle = () =>{
- const [section, setSection] = useState([{header:"",content:""}])
- const [title, setTitle] = useState("")
- const [abstract, setAbstract] = useState("")
-
+  const [section, setSection] = useState([{header:"",content:""}])
+  const [title, setTitle] = useState("")
+  const [abstract, setAbstract] = useState("")
+  const history = useHistory()
   const dispatch = useDispatch()
 
   const addSection = (e) => {
@@ -15,9 +16,10 @@ const WriteArticle = () =>{
     setSection([...section, { idx:null, header:"", content:"" }])
   }
 
-  const createArticle = (e) => {
+  const createArticle = async (e) => {
     e.preventDefault()
-    dispatch(ArticleActions.createArticle(section, title, abstract))
+    const newArticleId = await dispatch(ArticleActions.createArticle(section, title, abstract))
+    history.push(`/article/${newArticleId}`)
   }
 
   const sendSection = (idx, header, content) => {

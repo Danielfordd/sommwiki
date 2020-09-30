@@ -61,6 +61,8 @@ export const createArticle = (sections, title, abstract) => async dispatch => {
     },
     body: JSON.stringify({ sections:[...sections], id:data.id }),
   })
+
+  return data.id
 }
 
 export default function reducer(state = {list:[], current: {Sections:[]}}, action) {

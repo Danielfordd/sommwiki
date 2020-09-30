@@ -11,7 +11,7 @@ const ArticlePreview = ({getAllArticles, articles}) => {
     // eslint-disable-next-line
   }, []);
 
-  if (!articles) {
+  if (articles.length === 0) {
     return null;
   }
 

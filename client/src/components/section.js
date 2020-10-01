@@ -6,7 +6,7 @@ const Section = ({ id }) => {
   const dispatch = useDispatch()
   const updateHeader = (id, header) => dispatch(SectionActions.updateHeaderThunk(id, header));
   const updateContent = (id, content) => dispatch(SectionActions.updateContentThunk(id, content));
-  const { header, content, editable } = useSelector(state => state.sections[id])
+  const { header, content } = useSelector(state => state.sections[id])
 
   const handleHeader = e => {
     e.preventDefault()

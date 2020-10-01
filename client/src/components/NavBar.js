@@ -8,6 +8,7 @@ import SignUpForm from './SignUpForm'
 import HomePage from './HomePage'
 import Article from "./Article";
 import WriteArticle from './WriteArticle'
+import EditForm from './EditForm'
 import logo from '../images/LOGO.png'
 
 const NavBar = ({loggedIn}) => {
@@ -15,7 +16,7 @@ const NavBar = ({loggedIn}) => {
     return (
       <BrowserRouter>
         <nav className="nav-bar">
-          <NavLink exact to="/" className="Header-link"><img src={logo} alt={"Somm Wiki"} /></NavLink>
+        <NavLink exact to="/" className="Header-link logo"><img src={logo} alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
           <form>
             <input
               className="Search-bar"
@@ -26,6 +27,7 @@ const NavBar = ({loggedIn}) => {
           <Logoutbutton />
         </nav>
         <Switch>
+            <Route exact path="/articles/:id/edit" component={EditForm} />
             <Route path="/articles/create"  component={WriteArticle} />
             <Route path="/article/:id" component={Article} />
             <Route exact path="/login" component={LoginForm} />

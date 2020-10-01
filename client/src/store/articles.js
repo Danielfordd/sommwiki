@@ -2,6 +2,15 @@ const LOAD_ALL_ARTICLES = "LOAD_ALL_ARTICLES"
 const LOAD_MOST_RECENT_ARTICLES = "LOAD_MOST_RECENT_ARTICLES"
 const LOAD_ONE_ARTICLE = "LOAD_ONE_ARTICLE"
 const UPDATE_EDITABLE = "UPDATE_EDITABLE"
+const UPDATE_SECTION_HEADER_EDIT = "UPDATE_SECTION_HEADER_EDIT"
+const UPDATE_SECTION_CONTENT_EDIT = "UPDATE_SECTION_CONTENT_EDIT"
+const CREATE_SECTION_EDIT = "CREATE_SECTION_EDIT"
+const DELETE_SECTION_EDIT = "DELETE_SECTION_EDIT_xyc"
+
+const deleteSection = (id) => ({
+  type:DELETE_SECTION_EDIT,
+  id
+})
 
 const loadMostRecentArticles = (articles) => ({
   type:LOAD_MOST_RECENT_ARTICLES,
@@ -22,6 +31,38 @@ const updateEditable = (id) => ({
   type:UPDATE_EDITABLE,
   id
 })
+
+const updateHeader = (id, header) => ({
+  type:UPDATE_SECTION_HEADER_EDIT,
+  id,
+  header
+})
+
+const updateContent = (id, content) => ({
+  type:UPDATE_SECTION_CONTENT_EDIT,
+  id,
+  content
+})
+
+const createSection = () => ({
+  type:CREATE_SECTION_EDIT
+})
+
+export const deleteSectionThunk = (id) => async dispatch => {
+  dispatch(deleteSection(id))
+}
+
+export const createSectionThunk = () => async dispatch => {
+  dispatch(createSection())
+}
+
+export const updateHeaderEditThunk = (id, header) => async dispatch => {
+  dispatch(updateHeader(id, header))
+}
+
+export const updateContentEditThunk = (id, content) => async dispatch => {
+  dispatch(updateContent(id,content))
+}
 
 export const getMostRecentArticles = () => async dispatch => {
   const res = await fetch('/api/articles/recent')
@@ -47,7 +88,6 @@ export const getOneArticle = (id) => async dispatch => {
   const res = await fetch(`/api/articles/${id}`)
   if(res.ok) {
     const data = await res.json();
-    console.log('data w/o editable', data.article)
     let sectionsWithEditable = data.article.Sections.map(sec => {
       return {...sec, editable:false}
     })
@@ -92,19 +132,59 @@ export const createArticle = (sections, title, abstract) => async dispatch => {
   return data.id
 }
 
+export const updateArticle = (sections, title, abstract) => async dispatch => {
+  const XSRFTOKEN = await fetch('/api/auth/getToken')
+  const token = (await XSRFTOKEN.json())
+
+}
+
 export const updateEditableBoolean = (id) => async dispatch => {
   dispatch(updateEditable(id))
 }
 
-export default function reducer(state = {newest:[],list:[], current: {Sections:[]}}, action) {
+export const deleteArticleThunk = (articleId) => async dispatch => {
+  const XSRFTOKEN = await fetch('/api/auth/getToken')
+  const token = (await XSRFTOKEN.json())
+
+  const res = await fetch('/api/articles',{
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'csrf-token':token.XSRFTOKEN,
+    },
+    body: JSON.stringify({articleId}),
+  })
+
+  if(res.ok) {
+    console.log("successfully deleted")
+  } else {
+    console.log("there was an error", res)
+  }
+}
+
+export default function reducer(state =
+  {newest:[],
+    list:[],
+    current: {title:"", header:"",
+    Sections:[{header:"", content:""}]}}, action) {
+
   let nextState = {};
   switch (action.type) {
+    case CREATE_SECTION_EDIT:
+      nextState = {...state}
+      // debugger
+      nextState.current.Sections = [...nextState.current.Sections, {header:"", content:""}]
     case LOAD_MOST_RECENT_ARTICLES:
       nextState ={...state, newest: action.articles}
       return nextState
     case LOAD_ALL_ARTICLES:
       nextState = {...state, list: action.articles}
       return nextState
+    case DELETE_SECTION_EDIT:
+      nextState = {...state}
+      nextState.newest = []
+      nextState.current.Sections.splice(Number(action.id),1)
+      return nextState;
     case LOAD_ONE_ARTICLE:
       nextState = {...state, current:action.article}
       return nextState
@@ -112,7 +192,14 @@ export default function reducer(state = {newest:[],list:[], current: {Sections:[
       nextState = {...state};
       const index = Number(action.id)
       nextState.current.Sections[index].editable = !nextState.current.Sections[index].editable
-      // console.log(nextState.current.Sections[index].editable)
+      return nextState;
+    case UPDATE_SECTION_CONTENT_EDIT:
+      nextState = {...state}
+      nextState.current.Sections[Number(action.id)].content = action.content
+      return nextState;
+    case UPDATE_SECTION_HEADER_EDIT:
+      nextState = {...state}
+      nextState.current.Sections[Number(action.id)].header = action.header
       return nextState;
     default:
       return state;

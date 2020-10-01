@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Article, Section } = require('../../db/models');
+const { Article, Section, articleUsers } = require('../../db/models');
 
 const router = express.Router();
 
@@ -14,6 +14,28 @@ router.get("/", asyncHandler(async (req, res, next) => {
 
   res.json({articles:articles});
 }));
+
+router.delete("/", asyncHandler( async (req,res, next) =>{
+  const sections = await Section.findAll({
+    where: {articleId:req.body.articleId}
+  })
+
+  sections.forEach(async section => await section.destroy());
+
+  const article = await Article.findOne({
+    where: { id:req.body.articleId }
+  })
+
+  await articleUsers.destroy({
+    where:{articleId:req.body.articleId}
+  })
+
+  await Article.destroy({
+    where:{id:req.body.articleId}
+  })
+  // return await article.destroy();
+  // res.json({success:"success"})
+}))
 
 // /api/articles
 router.get("/recent", asyncHandler(async (req, res, next) => {
@@ -66,5 +88,6 @@ router.post("/create/section", asyncHandler( async (req, res, next) =>{
   })
   res.json({ articleId:req.body.id })
 }));
+
 
 module.exports = router;

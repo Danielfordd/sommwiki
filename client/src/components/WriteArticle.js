@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Section from './Section'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
@@ -6,7 +6,6 @@ import * as ArticleActions from '../store/articles'
 import * as SectionActions from '../store/sections'
 
 const WriteArticle = () =>{
-  // const [section, setSection] = useState([{header:"",content:""}])
   const [title, setTitle] = useState("")
   const [abstract, setAbstract] = useState("")
   const history = useHistory()
@@ -67,8 +66,6 @@ const WriteArticle = () =>{
           onClick={addSection}>
           Add Section
         </button>
-      </form>
-      <form>
         <button
           className="write-article__button"
           onClick={createArticle}>

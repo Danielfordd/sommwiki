@@ -8,13 +8,14 @@ import SignUpForm from './SignUpForm'
 import HomePage from './HomePage'
 import Article from "./Article";
 import WriteArticle from './WriteArticle'
+import logo from '../images/LOGO.png'
 
 const NavBar = ({loggedIn}) => {
   if(loggedIn) {
     return (
       <BrowserRouter>
         <nav className="nav-bar">
-          <NavLink exact to="/" className="Header-link">LOGO STANDIN</NavLink>
+          <NavLink exact to="/" className="Header-link"><img src={logo} alt={"Somm Wiki"} /></NavLink>
           <form>
             <input
               className="Search-bar"
@@ -38,7 +39,7 @@ const NavBar = ({loggedIn}) => {
   return (
     <BrowserRouter>
       <nav className="nav-bar">
-        <NavLink exact to="/" className="Header-link">LOGO STANDIN</NavLink>
+      <NavLink exact to="/" className="Header-link logo"><img src={logo} alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
         <form>
           <input
             className="Search-bar"

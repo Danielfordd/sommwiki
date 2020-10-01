@@ -6,8 +6,19 @@ const router = express.Router();
 
 // /api/articles
 router.get("/", asyncHandler(async (req, res, next) => {
+  const articles = await Article.findAll({
+    limit : 50,
+    order: [['title', 'ASC']],
+    attributes: ['id', 'title']
+  })
+
+  res.json({articles:articles});
+}));
+
+// /api/articles
+router.get("/recent", asyncHandler(async (req, res, next) => {
   const articles = await Article.findAll({ limit : 10, order: [['createdAt', 'DESC']]})
-  console.log()
+
   res.json({articles:articles});
 }));
 
@@ -43,8 +54,8 @@ router.post("/create/section", asyncHandler( async (req, res, next) =>{
 
   const sections = req.body.sections
 
-  sections.map(async section => {
-    const orderNumber = (section.idx + 1)
+  sections.map(async (section, idx) => {
+    const orderNumber = (idx + 1)
 
     await Section.create({
         header:section.header,

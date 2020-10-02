@@ -1,11 +1,17 @@
 import React from 'react';
 import pic from '../images/99124-004-F3A1104C.jpg'
 import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import * as ArticleActions from '../store/articles'
 
 const ArticleCard = ({article}) => {
   const history = useHistory();
 
+  const dispatch = useDispatch();
+  const getOneArticle = (id) => dispatch(ArticleActions.getOneArticle(id))
+
   const handleClick = () =>{
+    getOneArticle(article.id);
     let path = `/article/${article.id}`;
     history.push(path);
   }

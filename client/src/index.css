@@ -14,27 +14,22 @@ a {
 }
 
 a:hover {
-  color: #81726A;
-  color: #2A172C;
-  color:#e3d4c5;
+  color: #e3d4c5 !important;
 }
 
 body{
-  background-color: #EFE5DC;
-  /* background-color: #545E75; */
   background-color: #e3d4c5;
   font-size: 14px;
 }
 
 main {
   display: flex;
-  position: absolute;
-  top: 56px;
+  position: relative;
   width: 70%;
-  height: 100%;
+  height: 100vh;
   background-color: #FBFEFB;
-  left: 15%;
-  right: 15%;
+  background-color: white;
+  margin: auto;
 }
 
 .input {
@@ -48,13 +43,11 @@ main {
   padding: .25em .5em;
   width: 100%;
   background-color: #FBFEFB;
-  /* background-color: #EFE5DC; */
+  background-color: white
 }
 
 textarea.input {
-  height: 150px;
-}
-.write-article .input {
+  height: 100px;
 }
 
 .form-button {
@@ -84,17 +77,14 @@ textarea.input {
 .nav-bar {
   z-index: 32;
   line-height: 1.5;
-  /* background-color: #F3D8C7; */
   background-color: #2a172c;
-  padding: 13px;
+  padding: 11px;
   display: flex;
   align-items: center;
   max-height: 40px;
 }
 
 .nav-bar__logo {
-  /* background-color: #F3D8C7; */
-  /* background-color: #63ADF2; */
   display: flex;
   align-items: center;
   max-height: 56px;
@@ -146,11 +136,9 @@ textarea.input {
 
 .Header-link {
   font-weight: 600;
-  color:#e3d4c5;
-  color: black;
   color: white;
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
+  padding-top: 18px !important;
+  padding-bottom: 19px !important;
   margin-left: 16px;
   margin-right: 8px;
 }
@@ -161,23 +149,20 @@ textarea.input {
   border: none;
   background: none;
   font-weight: 600;
-  color: black;
+  color: white;
   font-size: 14px;
   margin-left: 10px;
   cursor: pointer;
 }
 
 .Header-button:hover {
-  color: #81726A;
-  color: #2A172C;
-  color:#e3d4c5;
+  color: #e3d4c5 !important;
   cursor: pointer;
 }
 
 
 .active {
-  color: #81726A;
-  border-bottom: 3px solid #81726A;
+  color:  #e3d4c5;
 }
 
 .middled {
@@ -213,16 +198,14 @@ textarea.input {
 }
 
 .article-preview-card:hover {
-  color: #81726A;
-  color: #2A172C;
-  color: #e3d4c5;
+  color: #e3d4c5 !important;
 }
 
 .article-card-title {
   margin: 5px;
   font-weight: 500;
   font-size: 16px;
-  border-bottom: 1px solid #81726A;;
+  border-bottom: 1px solid #2A172C;;
 }
 
 .article-card-abstract {
@@ -304,10 +287,9 @@ textarea.input {
   padding: 25px;
   max-width: 1250px;
   background-color: #FBFEFB;
-  position: absolute;;
-  height: 100%;
-  left:10%;
-  right:10%;
+  position: relative;
+  height: 100vh;
+  margin:auto;
 }
 
 .article__title{
@@ -372,10 +354,8 @@ textarea.input {
   padding: 25px;
   max-width: 1250px;
   background-color: #FBFEFB;
-  position: absolute;;
+  position: relative;
   height: 100%;
-  left:10%;
-  right:10%;
   margin:auto;
   height: 100%;
   margin:auto;
@@ -393,9 +373,7 @@ textarea.input {
 }
 
 .write-article__button:hover {
-  color: #81726A;
-  color: #2A172C;
-  color:#e3d4c5;
+  color: #e3d4c5 !important;
 }
 
 .section__number{
@@ -426,5 +404,4 @@ margin-bottom: 3px;
 .title-container__header {
   border-bottom: 1px solid black;
   margin-bottom: 5px !important;
-
 }

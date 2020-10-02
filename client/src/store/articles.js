@@ -132,9 +132,27 @@ export const createArticle = (sections, title, abstract) => async dispatch => {
   return data.id
 }
 
-export const updateArticle = (sections, title, abstract) => async dispatch => {
+export const updateArticle = (sections, title, abstract, articleId) => async dispatch => {
   const XSRFTOKEN = await fetch('/api/auth/getToken')
   const token = (await XSRFTOKEN.json())
+
+  // await fetch('/api/articles/update',{
+  //   method: 'PUT',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'csrf-token':token.XSRFTOKEN
+  //   },
+  //   body: JSON.stringify({title, abstract, articleId}),
+  // })
+
+  await fetch(`/api/articles/sections/update`,{
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'csrf-token':token.XSRFTOKEN
+    },
+    body: JSON.stringify({ sections:[...sections], articleId }),
+  })
 
 }
 
@@ -173,16 +191,19 @@ export default function reducer(state =
     case CREATE_SECTION_EDIT:
       nextState = {...state}
       // debugger
+      nextState.newest = [...nextState.newest]
       nextState.current.Sections = [...nextState.current.Sections, {header:"", content:""}]
+      return nextState
     case LOAD_MOST_RECENT_ARTICLES:
-      nextState ={...state, newest: action.articles}
+      nextState ={...state}
+      nextState.newest = [...action.articles]
       return nextState
     case LOAD_ALL_ARTICLES:
       nextState = {...state, list: action.articles}
       return nextState
     case DELETE_SECTION_EDIT:
       nextState = {...state}
-      nextState.newest = []
+      nextState.current.Sections = [...nextState.current.Sections]
       nextState.current.Sections.splice(Number(action.id),1)
       return nextState;
     case LOAD_ONE_ARTICLE:
@@ -194,12 +215,20 @@ export default function reducer(state =
       nextState.current.Sections[index].editable = !nextState.current.Sections[index].editable
       return nextState;
     case UPDATE_SECTION_CONTENT_EDIT:
-      nextState = {...state}
-      nextState.current.Sections[Number(action.id)].content = action.content
+      nextState = {...state};
+      nextState.current.Sections = [...nextState.current.Sections];
+      nextState.current.Sections[Number(action.id)] = {
+        header: nextState.current.Sections[Number(action.id)].header,
+        content:action.content
+      }
       return nextState;
     case UPDATE_SECTION_HEADER_EDIT:
       nextState = {...state}
-      nextState.current.Sections[Number(action.id)].header = action.header
+      nextState.current.Sections = [...nextState.current.Sections];
+      nextState.current.Sections[Number(action.id)] = {
+        header: action.header,
+        content:nextState.current.Sections[Number(action.id)].content
+      }
       return nextState;
     default:
       return state;

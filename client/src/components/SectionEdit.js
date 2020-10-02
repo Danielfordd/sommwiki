@@ -2,23 +2,19 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as ArticleActions from '../store/articles'
 
-const SectionEdit = ({ id, section }) => {
+const SectionEdit = ({ id }) => {
   const dispatch = useDispatch()
   const updateHeaderEdit = (id, header) => dispatch(ArticleActions.updateHeaderEditThunk(id, header));
   const updateContentEdit = (id, content) => dispatch(ArticleActions.updateContentEditThunk(id, content));
   const { header, content } = useSelector(state => state.articles.current.Sections[id])
-  const [sectionHeader, setSectionHeader] = useState(header)
-  const [sectionContent, setSectionContent] = useState(content)
 
   const handleHeader = e => {
     e.preventDefault()
-    setSectionHeader(e.target.value)
     updateHeaderEdit(id, e.target.value)
   }
 
   const handleContent = e => {
     e.preventDefault();
-    setSectionContent(e.target.value)
     updateContentEdit(id, e.target.value)
   }
 

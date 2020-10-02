@@ -17,22 +17,16 @@ const EditForm = () => {
   const [title, setTitle] = useState(article.title)
   const [abstract, setAbstract] = useState(article.abstract)
 
-  const getOneArticle = (id) => dispatch(ArticleActions.getOneArticle(id))
   const createSection = () => dispatch(ArticleActions.createSectionThunk());
   const deleteSection = (id) => dispatch(ArticleActions.deleteSectionThunk(id));
-  const [reRender, setReRender] = useState(true)
 
-  // useEffect(() => {
-  //   getOneArticle(id);
-  //   // eslint-disable-next-line
-  // },[]);
 
   const deleteMe = (e) => {
     e.preventDefault()
     const index = e.target.value
     deleteSection(index)
-    setReRender(!reRender)
   }
+
   const addSection = (e) => {
     e.preventDefault()
     createSection()
@@ -40,8 +34,9 @@ const EditForm = () => {
 
   const updateArticle = async (e) => {
     e.preventDefault()
-    const updatedArticleId = await dispatch(ArticleActions.updateArticle(sections, title, abstract))
-    history.push(`/article/${updatedArticleId}`)
+    await dispatch(ArticleActions.updateArticle(sections, title, abstract, id))
+    let path = `/article/${id}`
+    history.push(path)
   }
 
   return(
@@ -60,7 +55,6 @@ const EditForm = () => {
         onChange={e => setAbstract(e.target.value)}
         className="input"/>
     {sections.map( (section, idx) => {
-      console.log(section)
       return (
         <div key={`sectionNum-${section.orderNumber}`}className="article-section">
           <div className="section__delete">
@@ -84,7 +78,7 @@ const EditForm = () => {
         <button
           className="write-article__button"
           onClick={updateArticle}>
-          Create Article
+          Update Article
         </button>
       </form>
   </div>

@@ -13,6 +13,7 @@ const WriteArticle = () =>{
   const sections = useSelector(state => state.sections)
   const createSection = () => dispatch(SectionActions.createSectionThunk());
   const deleteSection = (id) => dispatch(SectionActions.deleteSectionThunk(id));
+  const clearPageStore = () => dispatch (SectionActions.clearPageThunk())
 
   const addSection = (e) => {
     e.preventDefault()
@@ -27,36 +28,39 @@ const WriteArticle = () =>{
 
   const createArticle = async (e) => {
     e.preventDefault()
+    clearPageStore();
     const newArticleId = await dispatch(ArticleActions.createArticle(sections, title, abstract))
     history.push(`/article/${newArticleId}`)
   }
 
   return (
     <div className="write-article">
+      <div className="write-article__title">Article Title</div>
       <input
         type="text"
         placeholder="Article title"
         value={title}
         onChange={e => setTitle(e.target.value)}
         className="input" />
+      <div className="write-article__abstract">Article Abstract</div>
       <textarea
         placeholder="Article abstract"
         value={abstract}
         onChange={e => setAbstract(e.target.value)}
         className="input"/>
       {sections.map((_, idx) =>
-        <div key={`write-article-section-${idx}`}>
-          <div className="section__number">
-            section {idx+1}
-          </div>
-          <div className="section__delete">
+        <div key={`write-article-section-${idx}`} className="write-article__section">
+          <span className="section__number">
+            Section {idx+1}
+          </span>
+          <span className="section__delete">
             [ <button
                 className="write-article__button"
                 value={idx}
                 onClick={deleteMe}>
                 delete section
             </button> ]
-          </div>
+          </span>
           <Section id={idx} />
       </div>
     )}

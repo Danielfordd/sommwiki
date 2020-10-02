@@ -30,21 +30,28 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
     history.push("/");
   }
 
+  const title = `\t${article.title}`
+  const abstract = `\t${article.abstract}`
+
   if(loggedIn) {
     return (
       <div className="article">
-        <h2 className="article__title">{article.title}</h2>
+        <div className="article-top">
+        <h2 className="article__title">{title}</h2>
+        <pre className="article__abstract">{abstract}</pre>
         <div className="article__image-container">
           <img src={pic} alt={"cat"} className="article__image"/>
         </div>
-        <p className="article__abstract">{article.abstract}</p>
+      </div>
         <TableOfContents />
         {article.Sections.map( (section, idx) => {
+          const header = `\t${section.header}`
+          const content = `\t${section.content}`
+
           return (
-            <div key={`sectionNum-${section.orderNumber}`}
-                 className="article-section">
-              <div className="article-section__header" contentEditable={false}> {section.header}</div>
-              <div className="article-section__content">{section.content}</div>
+            <div key={`sectionNum-${section.orderNumber}`} className="article-section">
+              <pre className="article-section__header" contentEditable={false}> {header}</pre>
+              <pre className="article-section__content">{content}</pre>
             </div>)
         })}
         <div>
@@ -56,23 +63,26 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
           onClick={deleteArticle}>Delete Article</button>
         </div>
       </div>
+
     )
   }
 
   return (
     <div className="article">
-      <h2 className="article__title">{article.title}</h2>
+      <h2 className="article__title">{title}</h2>
       <div className="article__image-container">
         <img src={pic} alt={"cat"} className="article__image"/>
       </div>
-      <p className="article__abstract">{article.abstract}</p>
+      <p className="article__abstract">{abstract}</p>
       <TableOfContents />
       {article.Sections.map( (section, idx) => {
+        const header = `\t${section.header}`
+        const content = `\t${section.content}`
+
         return (
-          <div key={`sectionNum-${section.orderNumber}`}
-               className="article-section">
-            <div className="article-section__header" contentEditable={false}> {section.header}</div>
-            <div className="article-section__content">{section.content}</div>
+          <div key={`sectionNum-${section.orderNumber}`} className="article-section">
+            <pre className="article-section__header" contentEditable={false}> {header}</pre>
+            <pre className="article-section__content">{content}</pre>
           </div>)
       })}
     </div>

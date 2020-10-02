@@ -57,15 +57,15 @@ const EditForm = () => {
     {sections.map( (section, idx) => {
       return (
         <div key={`sectionNum-${section.orderNumber}`}className="article-section">
-          <div className="section__delete">
+          <span>Section {idx+1}</span>
+          <span className="section__delete">
             [ <button
                 className="write-article__button"
                 value={idx}
                 onClick={deleteMe}>
                 delete section
             </button> ]
-          </div>
-          <div>Section {idx+1}</div>
+          </span>
           <SectionEdit id={idx}/>
         </div>)
     })}

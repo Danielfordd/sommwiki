@@ -2,6 +2,7 @@ const CREATE_SECTION = "CREATE_SECTION"
 const DELETE_SECTION = "DELETE_SECTION"
 const UPDATE_SECTION_HEADER = "UPDATE_SECTION_HEADER"
 const UPDATE_SECTION_CONTENT = "UPDATE_SECTION_CONTENT"
+const CLEAR_PAGE = "CLEAR_PAGE"
 
 const createSection = () =>({
   type:CREATE_SECTION,
@@ -23,6 +24,14 @@ const updateContent = (id, content) => ({
   id,
   content
 })
+
+const clearPage = () => ({
+  type: CLEAR_PAGE
+})
+
+export const clearPageThunk =() => async dispatch => {
+  dispatch(clearPage())
+}
 
 export const createSectionThunk = () => async dispatch => {
   dispatch(createSection())
@@ -61,6 +70,8 @@ export default function reducer(state = [{header:"", content:""}], action) {
       let content = copy[action.id].content
       copy[action.id] = {content, header:action.header}
       return copy
+    case CLEAR_PAGE:
+      return [{header:"", content:""}]
     default:
       return state;
   }

@@ -20,7 +20,9 @@ const ArticleCard = ({article}) => {
         <div className="article-preview-card" onClick={handleClick}>
           <img src={pic} className="article-preview-card__image" alt={"cat"}/>
           <div className="article-card-title">{article.title}</div>
-          <div className="article-card-abstract">{article.abstract}</div>
+          <div className="article-card-abstract-container">
+            <div className="article-card-abstract">{article.abstract}</div>
+          </div>
         </div>
   )
 }

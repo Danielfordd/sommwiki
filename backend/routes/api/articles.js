@@ -9,7 +9,7 @@ router.get("/", asyncHandler(async (req, res, next) => {
   const articles = await Article.findAll({
     limit : 50,
     order: [['title', 'ASC']],
-    attributes: ['id', 'title']
+    attributes: ['id', 'title', 'abstract']
   })
 
   res.json({articles:articles});
@@ -72,28 +72,28 @@ router.put("/sections/update", asyncHandler( async (req,res,next) =>{
     }
   })
 
-  // sections.map(async (section, idx) => {
-  //   const orderNumber = (idx + 1)
-  //   const { content, header } = Section
-  //   const sec = await Section.findOne( {where:{ orderNumber, articleId } } )
+  sections.map(async (section, idx) => {
+    const orderNumber = (idx + 1)
+    const { content, header } = Section
+    const sec = await Section.findOne( {where:{ orderNumber, articleId } } )
 
-  //   if(!!sec) {
-  //     sec.content = section.content;
-  //     sec.header = section.header;
-  //     sec.orderNumber = orderNumber
+    if(!!sec) {
+      sec.content = section.content;
+      sec.header = section.header;
+      sec.orderNumber = orderNumber
 
-  //     sec.save();
-  //   } else {
+      sec.save();
+    } else {
 
-  //     await Section.create({
-  //       header:section.header,
-  //       content: section.content,
-  //       articleId,
-  //       orderNumber
-  //     })
-  //   }
+      await Section.create({
+        header:section.header,
+        content: section.content,
+        articleId,
+        orderNumber
+      })
+    }
 
-  // })
+  })
 
   if(allOldSections.length > sections.length) {
     const difference = allOldSections.length - sections.length
@@ -166,3 +166,10 @@ router.post("/create/section", asyncHandler( async (req, res, next) =>{
 
 
 module.exports = router;
+
+router.get("/search/:query", asyncHandler( async(req,res,next)=>{
+  const { query } = req.params;
+
+  console.log(query)
+  res.json({success:'success'})
+}))

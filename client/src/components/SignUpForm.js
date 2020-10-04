@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import * as AuthAction from '../store/authentication';
-
+import { Redirect } from 'react-router-dom';
 
 
 const SignupForm = () => {
@@ -13,6 +13,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const token = useSelector(state => state.authentication.id);
 
   const signup = (firstName, lastName, userName,email, password) => dispatch(AuthAction.signup(firstName, lastName, userName,email, password))
 
@@ -20,6 +21,10 @@ const SignupForm = () => {
     e.preventDefault()
     signup(firstName, lastName, userName,email, password)
   }
+
+  if (token) {
+       return <Redirect to="/" />;
+       }
 
   return (
     <main className="centered middled">

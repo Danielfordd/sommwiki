@@ -24,6 +24,10 @@ html, body{
   /* overflow-y: auto; */
 }
 
+textarea {
+  resize:vertical;
+}
+
 main {
   display: flex;
   position: relative;
@@ -296,7 +300,7 @@ textarea.input {
   margin:auto;
   height: 100% !important;
   /* border-right: 1px solid black; */
-  overflow-y: auto;
+  /* overflow-y: auto; */
   min-width: 0
 }
 
@@ -377,7 +381,7 @@ pre {
   position: relative;
   margin:auto;
   height: 100vh !important;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 
 .write-article__button {

@@ -10,7 +10,6 @@ import Article from "./Article";
 import WriteArticle from './WriteArticle'
 import EditForm from './EditForm'
 import SearchResults from './SearchResults'
-import logo from '../images/LOGO.png'
 import SearchBar from "./SearchBar";
 
 const NavBar = ({loggedIn, searchResultsHandler}) => {
@@ -20,22 +19,16 @@ const NavBar = ({loggedIn, searchResultsHandler}) => {
     return (
       <BrowserRouter>
         <nav className="nav-bar">
-        <NavLink exact to="/" className="Header-link logo"><img src={logo} alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
-          <form onSubmit={searchResultsHandler} >
-            <input
-              className="Search-bar"
-              type="text"
-              placeholder="Search articles"
-              />
-          </form>
+        <NavLink exact to="/" className="Header-link logo"><img src="/logo.png" alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
+          <SearchBar />
           <NavLink to="/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
           <Logoutbutton />
         </nav>
         <Switch>
             <Route exact path="/articles/:id/edit" component={EditForm} />
-            <Route exact path ="/articles" component={SearchResults} />
             <Route exact path="/articles/create"  component={WriteArticle} />
             <Route exact path="/article/:id" component={Article} />
+            <Route exact path ="/articles" component={SearchResults} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
             <Route path="/" component={HomePage}/>
@@ -47,7 +40,7 @@ const NavBar = ({loggedIn, searchResultsHandler}) => {
   return (
     <BrowserRouter>
       <nav className="nav-bar">
-        <NavLink exact to="/" className="Header-link logo"><img src={logo} alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
+        <NavLink exact to="/" className="Header-link logo"><img src="/logo.png"  alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
         <SearchBar />
         <NavLink to="/login" activeClassName="active" className="Header-link">Login</NavLink>
         <NavLink to="/signup" activeClassName="active" className="Header-link">Sign Up</NavLink>

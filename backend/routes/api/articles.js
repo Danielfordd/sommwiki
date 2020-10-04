@@ -135,7 +135,8 @@ router.post("/create", asyncHandler( async (req, res, next) =>{
   // }
   const newArticle = await Article.create({
     title:req.body.title,
-    abstract: req.body.abstract
+    abstract: req.body.abstract,
+    imgUrl: "/default.jpg"
   });
 
   res.json({id:newArticle.id})

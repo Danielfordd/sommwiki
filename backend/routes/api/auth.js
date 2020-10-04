@@ -16,13 +16,13 @@ router.get('/getToken', (req, res) =>{
 //full route /api/auth/signup
 router.post('/signup', validateSignup, asyncHandler(async (req, res, next) => {
     // check for errors (validateLogin)
-    const errors = validationResult(req);
+    // const errors = validationResult(req);
 
-    // if there are errors, stop the function and pass object to next error-handling middleware in app.js
-    if (!errors.isEmpty()) {
-      console.log(errors);
-      return next({ status: 422, errors: errors.array() });
-    }
+    // // if there are errors, stop the function and pass object to next error-handling middleware in app.js
+    // if (!errors.isEmpty()) {
+    //   console.log(errors);
+    //   return next({ status: 422, errors: errors.array() });
+    // }
 
     //destructure signup form's info
     const {

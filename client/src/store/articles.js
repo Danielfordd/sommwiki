@@ -97,7 +97,8 @@ export const getOneArticle = (id) => async dispatch => {
       abstract:data.article.abstract,
       createdAt: data.article.createdAt,
       updatedAt: data.article.updatedAt,
-      Sections: sectionsWithEditable
+      Sections: sectionsWithEditable,
+      imgUrl:data.article.imgUrl
     }
     dispatch(loadOneArticle(articleWithEtidableSections))
   } else {
@@ -183,7 +184,7 @@ export const deleteArticleThunk = (articleId) => async dispatch => {
 export default function reducer(state =
   {newest:[],
     list:[],
-    current: {title:"", header:"",
+    current: {title:"", header:"", imgUrl:"",
     Sections:[{header:"", content:""}]}}, action) {
 
   let nextState = {};

@@ -40,7 +40,7 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
         <h2 className="article__title">{title}</h2>
         <pre className="article__abstract">{abstract}</pre>
         <div className="article__image-container">
-          <img src={pic} alt={"cat"} className="article__image"/>
+          <img src={article.imgUrl} alt={"cat"} className="article__image"/>
         </div>
       </div>
         <TableOfContents />
@@ -71,9 +71,9 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
     <div className="article">
       <h2 className="article__title">{title}</h2>
       <div className="article__image-container">
-        <img src={pic} alt={"cat"} className="article__image"/>
+        <img src={article.imgUrl} alt={"cat"} className="article__image"/>
       </div>
-      <p className="article__abstract">{abstract}</p>
+      <pre className="article__abstract">{abstract}</pre>
       <TableOfContents />
       {article.Sections.map( (section, idx) => {
         const header = `\t${section.header}`

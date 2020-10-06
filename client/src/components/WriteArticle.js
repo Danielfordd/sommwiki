@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Section from './Section'
+import Section from './section'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as ArticleActions from '../store/articles'

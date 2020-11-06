@@ -69,8 +69,6 @@ export const getMostRecentArticles = () => async dispatch => {
   if(res.ok) {
     const data = await res.json();
     dispatch(loadMostRecentArticles(data.articles))
-  } else {
-    console.log("there was an error", res)
   }
 }
 
@@ -79,8 +77,6 @@ export const getAllArticles = () => async dispatch => {
   if(res.ok) {
     const data = await res.json();
     dispatch(loadAllArticles(data.articles))
-  } else {
-    console.log("there was an error", res)
   }
 }
 
@@ -101,8 +97,6 @@ export const getOneArticle = (id) => async dispatch => {
       imgUrl:data.article.imgUrl
     }
     dispatch(loadOneArticle(articleWithEtidableSections))
-  } else {
-    console.log("there was an error", res)
   }
 }
 
@@ -137,15 +131,6 @@ export const updateArticle = (sections, title, abstract, articleId) => async dis
   const XSRFTOKEN = await fetch('/api/auth/getToken')
   const token = (await XSRFTOKEN.json())
 
-  // await fetch('/api/articles/update',{
-  //   method: 'PUT',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'csrf-token':token.XSRFTOKEN
-  //   },
-  //   body: JSON.stringify({title, abstract, articleId}),
-  // })
-
   await fetch(`/api/articles/sections/update`,{
     method: 'PUT',
     headers: {
@@ -173,12 +158,6 @@ export const deleteArticleThunk = (articleId) => async dispatch => {
     },
     body: JSON.stringify({articleId}),
   })
-
-  if(res.ok) {
-    console.log("successfully deleted")
-  } else {
-    console.log("there was an error", res)
-  }
 }
 
 export default function reducer(state =
@@ -191,7 +170,6 @@ export default function reducer(state =
   switch (action.type) {
     case CREATE_SECTION_EDIT:
       nextState = {...state}
-      // debugger
       nextState.newest = [...nextState.newest]
       nextState.current.Sections = [...nextState.current.Sections, {header:"", content:""}]
       return nextState

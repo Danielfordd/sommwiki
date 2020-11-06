@@ -4,7 +4,6 @@ const { Article, Section, articleUsers } = require('../../db/models');
 
 const router = express.Router();
 
-// /api/articles
 router.get("/", asyncHandler(async (req, res, next) => {
   const articles = await Article.findAll({
     limit : 50,
@@ -33,18 +32,9 @@ router.delete("/", asyncHandler( async (req,res, next) =>{
   await Article.destroy({
     where:{id:req.body.articleId}
   })
-  // return await article.destroy();
-  // res.json({success:"success"})
 }))
 
 router.put("/update", asyncHandler( async (req,res,next) =>{
-    // const errors = validationResult(req);
-
-  // if (!errors.isEmpty()) {
-  //   console.log(errors);
-  //   return next({ status: 422, errors: errors.array() });
-  // }
-
   const article = await Article.findOne({
     where: { id:req.body.articleId }
   })
@@ -57,13 +47,6 @@ router.put("/update", asyncHandler( async (req,res,next) =>{
 }))
 
 router.put("/sections/update", asyncHandler( async (req,res,next) =>{
-  // const errors = validationResult(req);
-
-  // if (!errors.isEmpty()) {
-  //   console.log(errors);
-  //   return next({ status: 422, errors: errors.array() });
-  // }
-
   const { sections, articleId }= req.body
 
   const allOldSections = await Section.findAll({
@@ -74,7 +57,6 @@ router.put("/sections/update", asyncHandler( async (req,res,next) =>{
 
   sections.map(async (section, idx) => {
     const orderNumber = (idx + 1)
-    const { content, header } = Section
     const sec = await Section.findOne( {where:{ orderNumber, articleId } } )
 
     if(!!sec) {
@@ -110,16 +92,12 @@ router.put("/sections/update", asyncHandler( async (req,res,next) =>{
   res.json({ success:'success' })
 }))
 
-
-
-// /api/articles
 router.get("/recent", asyncHandler(async (req, res, next) => {
   const articles = await Article.findAll({ limit : 10, order: [['createdAt', 'DESC']]})
 
   res.json({articles:articles});
 }));
 
-// /api/articles/:id
 router.get("/:id", asyncHandler(async (req, res, next) => {
   const article = await Article.findOne({where:{id:req.params.id}, include: Section})
   res.json({article:article});
@@ -127,12 +105,6 @@ router.get("/:id", asyncHandler(async (req, res, next) => {
 
 
 router.post("/create", asyncHandler( async (req, res, next) =>{
-  // const errors = validationResult(req);
-
-  // if (!errors.isEmpty()) {
-  //   console.log(errors);
-  //   return next({ status: 422, errors: errors.array() });
-  // }
   const newArticle = await Article.create({
     title:req.body.title,
     abstract: req.body.abstract,
@@ -143,13 +115,6 @@ router.post("/create", asyncHandler( async (req, res, next) =>{
 }));
 
 router.post("/create/section", asyncHandler( async (req, res, next) =>{
-  // const errors = validationResult(req);
-
-  // if (!errors.isEmpty()) {
-  //   console.log(errors);
-  //   return next({ status: 422, errors: errors.array() });
-  // }
-
   const sections = req.body.sections
 
   sections.map(async (section, idx) => {
@@ -167,10 +132,3 @@ router.post("/create/section", asyncHandler( async (req, res, next) =>{
 
 
 module.exports = router;
-
-router.get("/search/:query", asyncHandler( async(req,res,next)=>{
-  const { query } = req.params;
-
-  console.log(query)
-  res.json({success:'success'})
-}))

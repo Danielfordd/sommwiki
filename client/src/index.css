@@ -299,17 +299,15 @@ textarea.input {
   position: relative;
   margin:auto;
   height: 100% !important;
-  /* border-right: 1px solid black; */
-  /* overflow-y: auto; */
   min-width: 0
 }
 
 pre {
-  white-space: pre-wrap;       /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 
 .article-top {
@@ -400,8 +398,6 @@ pre {
   background-color: white;
   position: relative;
   margin:auto;
-  /* height: 100vh !important; */
-  /* overflow-y: auto; */
 }
 
 .write-article__button:hover {
@@ -425,8 +421,6 @@ margin-bottom: 3px;
 }
 
 .title-link{
-  /* margin-left: 10px; */
-  /* padding:3px; */
   color: #0000EE;
 }
 .title-link:after {

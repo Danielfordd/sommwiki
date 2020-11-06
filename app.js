@@ -23,10 +23,8 @@ app.use(cors({ origin: true }));
 app.use(helmet({ hsts: false }));
 app.use(csurf({
   cookie: {
-    //secure: true means cookie can only be sent over an HTTPS connection
     secure: process.env.NODE_ENV === 'production',
     sameSite: process.env.NODE_ENV === 'production',
-    //hhtpOnly: true means the client cant read the secret via client-side javascript
     httpOnly: true
   }
 }));

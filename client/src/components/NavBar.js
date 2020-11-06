@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Switch, Route, NavLink, useHistory } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 import Logoutbutton from './LogoutButton'
 import LoginForm from './LoginForm'
@@ -12,7 +12,7 @@ import EditForm from './EditForm'
 import SearchResults from './SearchResults'
 import SearchBar from "./SearchBar";
 
-const NavBar = ({loggedIn, searchResultsHandler}) => {
+const NavBar = ({ loggedIn }) => {
 
 
   if(loggedIn) {
@@ -58,10 +58,6 @@ const NavBar = ({loggedIn, searchResultsHandler}) => {
 
 const NavBarContainer = () => {
   const loggedIn = useSelector(state => !!state.authentication.id);
-
-  const searchResultsHandler = e => {
-    e.preventDefault();
-  }
 
   return <NavBar loggedIn={loggedIn} />
 }

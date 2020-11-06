@@ -26,10 +26,8 @@ const SearchBar = () => {
       words
         .map((word, i) => {
           if (i + 1 === words.length && !hasTrailingSpace) {
-            // The last word - ok with the word being "startswith"-like
             return `(?=.*\\b${escapeRegExp(word)})`;
           } else {
-            // Not the last word - expect the whole word exactly
             return `(?=.*\\b${escapeRegExp(word)}\\b)`;
           }
         })
@@ -37,7 +35,6 @@ const SearchBar = () => {
       "gi"
     );
     return list.filter(item => {
-      console.log(item)
       return searchRegex.test(item.title);
     });
   }

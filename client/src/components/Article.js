@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import * as ArticleActions from '../store/articles'
 import TableOfContents from './TableOfContents'
-import pic from '../images/99124-004-F3A1104C.jpg'
 
 const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
   let {id} = useParams()

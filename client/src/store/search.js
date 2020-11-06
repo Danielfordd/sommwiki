@@ -2,11 +2,6 @@ const LOAD_SEARCH_RESULTS = "LOAD_SEARCH_RESULTS";
 const UPDATE_SEARCH_QUERY = "UPDATE_SEARCH_QUERY"
 const UPDATE_SEARCH_RESULTS = "UPDATE_SEARCH_RESULTS"
 
-const loadSearch = (results) => ({
-  type:LOAD_SEARCH_RESULTS,
-  results
-})
-
 const updateSearchQuery = (query) => ({
   type:UPDATE_SEARCH_QUERY,
   query
@@ -21,10 +16,6 @@ export const updateQuery = (query) => async dispatch =>{
   dispatch(updateSearchQuery(query))
 }
 
-export const loadSearchResults = (searchQuery) => async dispatch =>{
-
-}
-
 export const updateSearchResultsTHUNK = (results) => async dispatch => {
   dispatch(updateSearchResults(results))
 }
@@ -35,7 +26,6 @@ export default function reducer(state={results:[], query:''}, action) {
     case LOAD_SEARCH_RESULTS:
       return nextState;
     case UPDATE_SEARCH_QUERY:
-      // console.log(action.query)
       nextState = {...state}
       nextState.query = action.query
       return nextState;

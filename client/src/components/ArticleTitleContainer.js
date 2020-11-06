@@ -9,7 +9,7 @@ const ArticleTitleContainer = () => {
   return (
   <div className="article-title-container">
     {articles.map(
-      (article, idx) => <NavLink
+      (article) => <NavLink
                           className="title-link"
                           key={`article-link-${article.id}`}
                           to={`/article/${article.id}`}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import pic from '../images/99124-004-F3A1104C.jpg'
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as ArticleActions from '../store/articles'

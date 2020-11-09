@@ -184,7 +184,7 @@ textarea.input {
   flex-flow: wrap;
   max-width: auto;
   max-height: auto;
-  margin: auto;
+  justify-content: center;
   margin-top: 10px;
   padding:5px;
   grid-gap: 7px;
@@ -194,14 +194,15 @@ textarea.input {
 
 
 .article-preview-card {
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   background-color: #FBFEFB;
   align-self: center;
   justify-self: center;
   border-radius:7px;
   box-shadow: 0 8px 8px 0 rgba(0,0,0,0.3);
   overflow: hidden;
+  margin: 5px;
 }
 
 .article-preview-card:hover {
@@ -212,7 +213,6 @@ textarea.input {
   margin: 5px;
   font-weight: 600;
   font-size: 14px;
-  border-bottom: 1px solid #2A172C;;
 }
 
 .article-card-abstract {
@@ -255,7 +255,7 @@ textarea.input {
 
 .article-preview-card__image {
   width: 100%;
-  height: 55%;
+  height: 80%;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
@@ -438,4 +438,21 @@ margin-bottom: 3px;
 
 .article-card-abstract {
   margin: 5px;
+}
+
+.demo-login-button {
+  background-color: #EFE5DC;
+  padding: 0;
+  border: black;
+  background: none;
+  font-weight: 600;
+  color: black;
+  font-size: 14px;
+  margin-left: 7px;
+  cursor: pointer;
+  margin-bottom: 10px !important;
+}
+
+.demo-login-button:hover {
+ color: #e3d4c5 !important;;
 }

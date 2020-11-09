@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-
+import LoginDemoUser from './LoginDemoUser'
 
 import * as AuthAction from '../store/authentication';
 
@@ -27,6 +27,7 @@ const LoginForm = ({loginHandler, updateEmail, updatePassword, email, password, 
                 onChange={updatePassword}
                 className="input"/>
           <button type="submit" className="form-button">Login</button>
+          <LoginDemoUser />
           <div className="signup-form-login">
               <div>Dont have an account?</div><NavLink to="/signup"> Sign Up</NavLink>
           </div>

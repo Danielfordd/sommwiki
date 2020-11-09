@@ -17,8 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser())
-
-// Security Middleware
 app.use(cors({ origin: true }));
 app.use(helmet({ hsts: false }));
 app.use(csurf({
@@ -32,8 +30,6 @@ app.use(csurf({
 
 app.use(routes);
 
-// Serve React Application
-// This should come after routes, but before 404 and error handling.
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get(/\/(?!api)*/, (req, res) => {

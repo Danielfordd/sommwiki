@@ -150,7 +150,7 @@ export const deleteArticleThunk = (articleId) => async dispatch => {
   const XSRFTOKEN = await fetch('/api/auth/getToken')
   const token = (await XSRFTOKEN.json())
 
-  const res = await fetch('/api/articles',{
+  await fetch('/api/articles',{
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

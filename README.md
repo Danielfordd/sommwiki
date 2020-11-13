@@ -245,4 +245,17 @@ As development continues the website will be refactored to prevent users from di
 Users will be modified to have a role, defaulting to "user". Users with the role "Editor" will be able to view "under review" articles and changes on a backend page that only they have access to. The editor can decide to reject the changes or to modify them for accuracy.
 
 ## Images
+***
 As development continues, users will be able to submit images to be included in the articles. This will be set up with AWS S3 buckets.
+
+## Same Page Editing
+***
+Allow users to edit just one section of an article as they read without redirecting to the full edit page.
+
+## Known Bug Log
+***
+- Editing an articles title or abstract does not update the article.
+
+- Search results Images
+
+- User Validation errors on sign up and log in.

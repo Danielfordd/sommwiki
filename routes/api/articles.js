@@ -74,7 +74,6 @@ router.put("/sections/update", asyncHandler( async (req,res,next) =>{
         orderNumber
       })
     }
-
   })
 
   if(allOldSections.length > sections.length) {

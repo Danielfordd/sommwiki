@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const popDemoUser = e => {
     e.preventDefault()
-    dispatch(login("demouser", "password"))
+    dispatch(login("demo@example.com", "password"))
     history.push('/')
   }
 

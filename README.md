@@ -6,6 +6,7 @@
 - [Cocktail Search](#Cocktail-Search)
 - [User Authentication](#User-Authentication)
 - [Future Features](#Future-features)
+
 ## Technologies
 - React
 - Redux
@@ -237,3 +238,11 @@ When a user clicks "Logout" it deletes the Json web token and sends an empty use
 
 ## Future Features
 ***
+
+## Editors Page
+As development continues the website will be refactored to prevent users from directly writing, editing, and deleting articles or sections without an "editors" approval. Users will still be able to access the above features in the same way, but the updated article will be saved to the database with a status of "under review".
+
+Users will be modified to have a role, defaulting to "user". Users with the role "Editor" will be able to view "under review" articles and changes on a backend page that only they have access to. The editor can decide to reject the changes or to modify them for accuracy.
+
+## Images
+As development continues, users will be able to submit images to be included in the articles. This will be set up with AWS S3 buckets.

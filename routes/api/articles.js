@@ -8,7 +8,7 @@ router.get("/", asyncHandler(async (req, res, next) => {
   const articles = await Article.findAll({
     limit : 50,
     order: [['title', 'ASC']],
-    attributes: ['id', 'title', 'abstract']
+    attributes: ['id', 'title', 'abstract', 'imgUrl']
   })
 
   res.json({articles:articles});
@@ -98,7 +98,11 @@ router.get("/recent", asyncHandler(async (req, res, next) => {
 }));
 
 router.get("/:id", asyncHandler(async (req, res, next) => {
-  const article = await Article.findOne({where:{id:req.params.id}, include: Section})
+  const article = await Article.findOne({
+                                          where:{id:req.params.id},
+                                          include: [{model:Section, attributes: ['id', 'header', 'content', 'orderNumber']}],
+                                          order: [[Section, 'orderNumber', 'ASC']]
+                                        })
   res.json({article:article});
 }));
 

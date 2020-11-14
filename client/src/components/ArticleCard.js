@@ -17,7 +17,7 @@ const ArticleCard = ({article}) => {
 
   return (
         <div className="article-preview-card" onClick={handleClick}>
-          <img src={article.imgUrl} className="article-preview-card__image" alt={"cat"}/>
+          <img src={article.imgUrl} className="article-preview-card__image" alt={`${article.title}`}/>
           <div className="article-card-title">{article.title}</div>
         </div>
   )

@@ -8,7 +8,6 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const query = useSelector(state => state.search.query)
   const articles = useSelector(state => state.articles.list)
-  // const titles = useSelector(state => state.articles.list.map(article => article.title))
 
   const updateSearch = (x) => dispatch(SearchActions.updateQuery(x))
   const updateResults = (sresults) => dispatch(SearchActions.updateSearchResultsTHUNK(sresults))

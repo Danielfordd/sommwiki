@@ -131,16 +131,25 @@ export const updateArticle = (sections, title, abstract, articleId) => async dis
   const XSRFTOKEN = await fetch('/api/auth/getToken')
   const token = (await XSRFTOKEN.json())
 
-  await fetch(`/api/articles/sections/update`,{
+  const resOne = await fetch(`/api/articles/update`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       'csrf-token':token.XSRFTOKEN
     },
-    body: JSON.stringify({ sections:[...sections], articleId }),
+    body: JSON.stringify({ articleId, title, abstract }),
   })
-
-}
+  if (resOne.ok) {
+    await fetch(`/api/articles/sections/update`,{
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'csrf-token':token.XSRFTOKEN
+      },
+      body: JSON.stringify({ sections:[...sections], articleId }),
+    })
+    }
+  }
 
 export const updateEditableBoolean = (id) => async dispatch => {
   dispatch(updateEditable(id))
@@ -186,7 +195,8 @@ export default function reducer(state =
       nextState.current.Sections.splice(Number(action.id),1)
       return nextState;
     case LOAD_ONE_ARTICLE:
-      nextState = {...state, current:action.article}
+      nextState = {...state}
+      nextState.current = action.article
       return nextState
     case UPDATE_EDITABLE:
       nextState = {...state};

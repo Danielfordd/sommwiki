@@ -21,8 +21,7 @@ const SectionEdit = ({ id }) => {
   return(
     <div className="section">
       <form className="Login-form">
-          <input tsetSectionContentpe="text"
-                placeholder="Section header"
+          <input placeholder="Section header"
                 value={header}
                 onChange={handleHeader}
                 className="input"

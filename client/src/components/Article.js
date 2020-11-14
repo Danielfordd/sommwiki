@@ -31,7 +31,6 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
 
   const title = `\t${article.title}`
   const abstract = `\t${article.abstract}`
-
   if(loggedIn) {
     return (
       <div className="article">

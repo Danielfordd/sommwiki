@@ -35,15 +35,17 @@ router.delete("/", asyncHandler( async (req,res, next) =>{
 }))
 
 router.put("/update", asyncHandler( async (req,res,next) =>{
+  const { title, abstract, articleId }= req.body
+
   const article = await Article.findOne({
-    where: { id:req.body.articleId }
+    where: { id:articleId }
   })
 
-  article.title = req.body.title;
-  article.abstract = req.body.abstract
+  article.title = title;
+  article.abstract = abstract;
 
   article.save()
-  res.json({success:'success'})
+  res.json({id: articleId, title: title, abstract: abstract, imgUrl: article.imgUrl})
 }))
 
 router.put("/sections/update", asyncHandler( async (req,res,next) =>{
@@ -87,8 +89,12 @@ router.put("/sections/update", asyncHandler( async (req,res,next) =>{
     }
   }
 
-
-  res.json({ success:'success' })
+  const updatedSections = await Section.findAll({
+    where: {
+      articleId
+    }
+  })
+  res.json({ updatedSections:updatedSections })
 }))
 
 router.get("/recent", asyncHandler(async (req, res, next) => {

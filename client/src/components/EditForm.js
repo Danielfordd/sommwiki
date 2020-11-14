@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import * as ArticleActions from '../store/articles'
@@ -7,7 +7,7 @@ import SectionEdit from './SectionEdit'
 
 const EditForm = () => {
   let {id} = useParams()
-
+  const getOneArticle = (id) => dispatch(ArticleActions.getOneArticle(id))
   const history = useHistory()
   const dispatch = useDispatch();
 
@@ -20,6 +20,10 @@ const EditForm = () => {
   const createSection = () => dispatch(ArticleActions.createSectionThunk());
   const deleteSection = (id) => dispatch(ArticleActions.deleteSectionThunk(id));
 
+  useEffect(() => {
+    getOneArticle(id);
+    // eslint-disable-next-line
+  }, []);
 
   const deleteMe = (e) => {
     e.preventDefault()
@@ -56,7 +60,7 @@ const EditForm = () => {
         className="input"/>
     {sections.map( (section, idx) => {
       return (
-        <div key={`sectionNum-${section.orderNumber}`}className="article-section">
+        <div key={`sectionNum-${section.idx+1}`}className="article-section">
           <span>Section {idx+1}</span>
           <span className="section__delete">
             [ <button

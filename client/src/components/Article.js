@@ -47,7 +47,7 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
           const content = `\t${section.content}`
 
           return (
-            <div key={`sectionNum-${section.orderNumber}`} className="article-section">
+            <div key={`sectionNum--${article.title}-${section.orderNumber}`} className="article-section">
               <pre className="article-section__header" contentEditable={false}> {header}</pre>
               <pre className="article-section__content">{content}</pre>
             </div>)
@@ -78,7 +78,7 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
         const content = `\t${section.content}`
 
         return (
-          <div key={`sectionNum-${section.orderNumber}`} className="article-section">
+          <div key={`sectionNum-${article.title}-${section.orderNumber}`} className="article-section">
             <pre className="article-section__header" contentEditable={false}> {header}</pre>
             <pre className="article-section__content">{content}</pre>
           </div>)

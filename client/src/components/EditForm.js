@@ -60,7 +60,7 @@ const EditForm = () => {
         className="input"/>
     {sections.map( (section, idx) => {
       return (
-        <div key={`sectionNum-${section.idx+1}`}className="article-section">
+        <div key={`sectionNum--${article.title}${section.idx+1}`}className="article-section">
           <span>Section {idx+1}</span>
           <span className="section__delete">
             [ <button

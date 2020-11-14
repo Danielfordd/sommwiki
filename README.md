@@ -118,9 +118,9 @@ The information from the "articles/current" slice of redux state is mapped over 
 The table of contents is dynamically generated based off of the mapping of the redux slice of state "articles/current/sections". Each table of content input is displayed based off of the section's orderNumber.
 
 
-## Cocktail Search
+## Article Search
 ***
-Users are able to type a search term and find relevant cocktails using the navigation's search bar. The search bar is its own react component using regex to match results and account for trailing white space.
+Users are able to type a search term and find relevant articles using the navigation's search bar. The search bar is its own react component using regex to match results and account for trailing white space.
 
 --gif--
 

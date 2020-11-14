@@ -424,6 +424,7 @@ margin-bottom: 3px;
   color: #0000EE;
   font-size: 1.25em;
 }
+
 .title-link:after {
   content: " · ";
   font-weight: bold;

@@ -14,7 +14,7 @@ const Article = ({getOneArticle, article, deleteArticleFetch, loggedIn}) => {
   }, []);
 
   if(!article) {
-    return null;
+    return (<div>Loading</div>);
   }
 
   const editArticle = e => {

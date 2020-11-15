@@ -39,6 +39,7 @@ const EditForm = () => {
   const updateArticle = async (e) => {
     e.preventDefault()
     await dispatch(ArticleActions.updateArticle(sections, title, abstract, id))
+    await getOneArticle(id);
     let path = `/article/${id}`
     history.push(path)
   }
@@ -60,7 +61,7 @@ const EditForm = () => {
         className="input"/>
     {sections.map( (section, idx) => {
       return (
-        <div key={`sectionNum--${article.title}${section.idx+1}`}className="article-section">
+        <div key={`sectionNum--${article.title}${idx+1}`}className="article-section">
           <span>Section {idx+1}</span>
           <span className="section__delete">
             [ <button

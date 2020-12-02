@@ -28,7 +28,7 @@ const NavBar = ({ loggedIn }) => {
           <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
           <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
           <SearchBar />
-          <NavLink to="/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
+          <NavLink to="/articles/create" activeClassName="active" className="Header-link loginheader">Write Article</NavLink>
           <Logoutbutton />
         </nav>
         <Switch>

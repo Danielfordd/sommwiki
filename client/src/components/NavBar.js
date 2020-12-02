@@ -11,6 +11,10 @@ import WriteArticle from './WriteArticle'
 import EditForm from './EditForm'
 import SearchResults from './SearchResults'
 import SearchBar from "./SearchBar";
+import { Icon } from '@iconify/react';
+import linkedin2Icon from '@iconify-icons/icomoon-free/linkedin2';
+import githubOutlined from '@iconify-icons/ant-design/github-outlined';
+import angellistIcon from '@iconify-icons/fa/angellist';
 
 const NavBar = ({ loggedIn }) => {
 
@@ -20,6 +24,9 @@ const NavBar = ({ loggedIn }) => {
       <BrowserRouter>
         <nav className="nav-bar">
         <NavLink exact to="/" className="Header-link logo"><img src="/logo.png" alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
+        <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
+          <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
+          <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
           <SearchBar />
           <NavLink to="/articles/create" activeClassName="active" className="Header-link">Write Article</NavLink>
           <Logoutbutton />
@@ -41,8 +48,11 @@ const NavBar = ({ loggedIn }) => {
     <BrowserRouter>
       <nav className="nav-bar">
         <NavLink exact to="/" className="Header-link logo"><img src="/logo.png"  alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
+        <a href="https://github.com/Danielfordd/sommwiki" className="github" alt="github" ><Icon icon={githubOutlined} className="github" /></a>
+        <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
+        <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
         <SearchBar />
-        <NavLink to="/login" activeClassName="active" className="Header-link">Login</NavLink>
+        <NavLink to="/login" activeClassName="active" className="Header-link loginheader">Login</NavLink>
         <NavLink to="/signup" activeClassName="active" className="Header-link">Sign Up</NavLink>
       </nav>
       <Switch>

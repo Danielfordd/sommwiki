@@ -35,12 +35,21 @@ textarea {
 
 main {
   display: flex;
-  position: relative;
-  width: 70%;
-  height: 250px;
+  /* position: relative; */
   background-color: #FBFEFB;
   background-color: white;
   margin: auto;
+}
+
+.signup_center {
+  margin-left: 125px;
+  margin-bottom: -15px;
+}
+
+.login_center {
+  margin-top: 20px;
+  margin-left: 125px;
+  margin-bottom: 20px;
 }
 
 .sign-up-main {

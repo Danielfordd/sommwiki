@@ -13,7 +13,6 @@ const LoginForm = ({loginHandler, updateEmail, updatePassword, email, password, 
   }
 
   return (
-    <div className="login-container">
       <main className="centered middled">
         <form onSubmit={loginHandler} className="Login-form">
           <input type="text"
@@ -35,7 +34,6 @@ const LoginForm = ({loginHandler, updateEmail, updatePassword, email, password, 
           {/* </div> */}
         </form>
       </main>
-    </div>
   );
 }
 

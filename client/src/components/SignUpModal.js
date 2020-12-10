@@ -43,9 +43,12 @@ export default function SimpleModal() {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <SignIpForm />
-    </div>
+        <div style={modalStyle} className={classes.paper}>
+            <h1 className="signup_center">
+            Sign Up
+            </h1>
+            <SignIpForm />
+        </div>
   );
 
   return (

@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     top: '30%',
     margin: 'auto',
     width: 400,
+    height: 250,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -43,6 +44,9 @@ export default function SimpleModal() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
+        <h1 className="login_center">
+            Login
+        </h1>
       <LoginForm />
       {/* <SimpleModal /> */}
     </div>

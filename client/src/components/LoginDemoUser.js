@@ -19,7 +19,7 @@ const LoginForm = () => {
   }
 
   return (
-          <button type="submit" onClick={popDemoUser} className="demo-login-button">Login Demo User</button>
+          <button type="submit" onClick={popDemoUser} className="form-button">Login Demo User</button>
   );
 }
 

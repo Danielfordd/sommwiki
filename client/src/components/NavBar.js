@@ -15,6 +15,8 @@ import { Icon } from '@iconify/react';
 import linkedin2Icon from '@iconify-icons/icomoon-free/linkedin2';
 import githubOutlined from '@iconify-icons/ant-design/github-outlined';
 import angellistIcon from '@iconify-icons/fa/angellist';
+import LoginModal from './LoginModal'
+import SignUpModal from './SignUpModal'
 
 const NavBar = ({ loggedIn }) => {
 
@@ -22,14 +24,18 @@ const NavBar = ({ loggedIn }) => {
   if(loggedIn) {
     return (
       <BrowserRouter>
-        <nav className="nav-bar">
-        <NavLink exact to="/" className="Header-link logo"><img src="/logo.png" alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
-        <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
-          <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
-          <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
-          <SearchBar />
-          <NavLink to="/articles/create" activeClassName="active" className="Header-link loginheader">Write Article</NavLink>
-          <Logoutbutton />
+        <nav className="nav-bar space">
+          <div className="nav-bar">
+            <NavLink exact to="/" className="Header-link logo"><img src="/logo.png" alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
+            <SearchBar />
+            <NavLink to="/articles/create" activeClassName="active" className="Header-link loginheader">Write Article</NavLink>
+            <Logoutbutton />
+          </div>
+          <div className="nav-bar">
+            <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
+            <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
+            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
+          </div>
         </nav>
         <Switch>
             <Route exact path="/articles/:id/edit" component={EditForm} />
@@ -46,20 +52,24 @@ const NavBar = ({ loggedIn }) => {
 
   return (
     <BrowserRouter>
-      <nav className="nav-bar">
+      <nav className="nav-bar space">
+        <div className="nav-bar">
         <NavLink exact to="/" className="Header-link logo"><img src="/logo.png"  alt={"Somm Wiki"} className="nav-bar__logo" /></NavLink>
-        <a href="https://github.com/Danielfordd/sommwiki" className="github" alt="github" ><Icon icon={githubOutlined} className="github" /></a>
-        <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
-        <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
         <SearchBar />
-        <NavLink to="/login" activeClassName="active" className="Header-link loginheader">Login</NavLink>
-        <NavLink to="/signup" activeClassName="active" className="Header-link">Sign Up</NavLink>
+        <LoginModal />
+        <SignUpModal />
+        </div>
+        <div className="nav-bar">
+            <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
+            <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
+            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
+          </div>
       </nav>
       <Switch>
           <Route exact path ="/articles" component={SearchResults} />
           <Route path="/article/:id" component={Article} />
-          <Route path="/login" component={LoginForm} />
-          <Route path="/signup"component={SignUpForm} />
+          {/* <Route path="/login" component={LoginForm} />
+          <Route path="/signup"component={SignUpForm} /> */}
           <Route path="/" component={HomePage}/>
       </Switch>
     </BrowserRouter>

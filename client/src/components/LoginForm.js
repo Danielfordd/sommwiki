@@ -26,11 +26,13 @@ const LoginForm = ({loginHandler, updateEmail, updatePassword, email, password, 
                 value={password}
                 onChange={updatePassword}
                 className="input"/>
-          <button type="submit" className="form-button">Login</button>
-          <LoginDemoUser />
-          <div className="signup-form-login">
-              <div>Dont have an account?</div><NavLink to="/signup"> Sign Up</NavLink>
+          <div>
+            <button type="submit" className="form-button">Login</button>
+            <LoginDemoUser />
           </div>
+          {/* <div className="signup-form-login"> */}
+              {/* <div>Dont have an account?</div><NavLink to="/signup"> Sign Up</NavLink> */}
+          {/* </div> */}
         </form>
       </main>
     </div>

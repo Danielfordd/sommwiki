@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import { useDispatch } from 'react-redux';
 import * as ArticleActions from './store/articles'
+import LoginModal from './components/LoginModal'
 
 function App() {
   const dispatch = useDispatch()

@@ -17,6 +17,7 @@ import githubOutlined from '@iconify-icons/ant-design/github-outlined';
 import angellistIcon from '@iconify-icons/fa/angellist';
 import LoginModal from './LoginModal'
 import SignUpModal from './SignUpModal'
+import Footer from './Footer'
 
 const NavBar = ({ loggedIn }) => {
 
@@ -32,9 +33,9 @@ const NavBar = ({ loggedIn }) => {
             <Logoutbutton />
           </div>
           <div className="nav-bar">
-            <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
+            {/* <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
             <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
-            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
+            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a> */}
           </div>
         </nav>
         <Switch>
@@ -46,6 +47,7 @@ const NavBar = ({ loggedIn }) => {
             <Route exact path="/signup" component={SignUpForm} />
             <Route path="/" component={HomePage}/>
         </Switch>
+        <Footer />
     </BrowserRouter>
     )
   }
@@ -60,9 +62,9 @@ const NavBar = ({ loggedIn }) => {
         <SignUpModal />
         </div>
         <div className="nav-bar">
-            <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
+            {/* <a href="https://github.com/Danielfordd/sommwiki" className="github-a" alt="github"><Icon icon={githubOutlined} className="github" /></a>
             <a href="https://www.linkedin.com/in/daniel-ford-29970a5a/" alt="linkedin"><Icon icon={linkedin2Icon} className="linkedin" /></a>
-            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a>
+            <a href="https://angel.co/u/daniel-ford-14" className="angel" alt="angellist" ><Icon icon={angellistIcon} className="angels" /></a> */}
           </div>
       </nav>
       <Switch>
@@ -72,6 +74,7 @@ const NavBar = ({ loggedIn }) => {
           <Route path="/signup"component={SignUpForm} /> */}
           <Route path="/" component={HomePage}/>
       </Switch>
+      <Footer />
     </BrowserRouter>
   )
 }

@@ -119,8 +119,7 @@ textarea.input {
 }
 .github {
   font-size: 30px;
-  color: white;
-  float: right;
+  color: black;
   /* align-self: flex-end; */
 }
 
@@ -138,16 +137,14 @@ textarea.input {
 
 .linkedin {
   font-size: 30px;
-  color: white;
+  color: black;
   padding-left: 10px;
-  float: right;
 }
 
 .angels {
   font-size: 30px;
-  color: white;
+  color: black;
   padding-left: 10px;
-  float: right;
 }
 .nav-bar__logo {
   display: flex;
@@ -296,6 +293,31 @@ margin-left: 40px!important;
   height: 100vh;
   max-width: 1165px;
   margin:auto;
+}
+.footer {
+  background-color: white;
+  max-width: 1165px;
+  position: relative;
+  margin:auto;
+  padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+  padding: 16px 8px;
+}
+
+.footer-inner {
+  margin:auto;
+  position: relative;
+  margin-left: 40%;
+}
+
+.footer span {
+  margin-right: 8px;
+  position: relative;
+  top: -7px;
 }
 
 .homepage-container h2 {
